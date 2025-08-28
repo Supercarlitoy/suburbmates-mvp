@@ -11,7 +11,7 @@ const config: Config = {
     extend: {
       colors,
       fontFamily: typography.fontFamily,
-      fontSize: typography.fontSize,
+      // fontSize: typography.fontSize, // TODO: Fix typing issues
       spacing,
       borderRadius,
       boxShadow,
@@ -42,7 +42,7 @@ const config: Config = {
   },
   plugins: [
     // Custom plugin to generate CSS variables from tokens
-    function({ addBase }) {
+    function({ addBase }: { addBase: any }) {
       addBase({
         ':root': {
           '--color-background': colors.background,

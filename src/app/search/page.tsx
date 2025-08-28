@@ -6,10 +6,10 @@ import { db } from '@/lib/db';
 import Image from 'next/image';
 
 interface SearchPageProps {
-  searchParams: {
+  searchParams: Promise<{
     category?: string;
     suburb?: string;
-  };
+  }>;
 }
 
 async function getBusinesses(category?: string, suburb?: string) {
@@ -21,15 +21,13 @@ async function getBusinesses(category?: string, suburb?: string) {
     const businesses = await db.business.findMany({
       where: {
         category: {
-          name: {
-            contains: category,
-            mode: 'insensitive',
+          slug: {
+            equals: category,
           },
         },
         suburb: {
           name: {
             contains: suburb,
-            mode: 'insensitive',
           },
         },
       },
@@ -37,14 +35,21 @@ async function getBusinesses(category?: string, suburb?: string) {
         category: true,
         suburb: true,
       },
-      orderBy: [
-        { verified: 'desc' },
-        { featured: 'desc' },
-        { createdAt: 'desc' },
-      ],
+      orderBy: {
+        featured: 'desc',
+      },
     });
 
-    return businesses;
+    const businessesWithProperTypes = businesses.map(business => ({
+      ...business,
+      description: business.description ?? undefined,
+      website: business.website ?? undefined,
+      phone: business.phone ?? undefined,
+      email: business.email ?? undefined,
+      abn: business.abn ?? undefined,
+    }));
+
+    return businessesWithProperTypes;
   } catch (error) {
     console.error('Error fetching businesses:', error);
     return [];
@@ -117,8 +122,8 @@ async function SearchResults({ category, suburb }: { category?: string; suburb?:
   );
 }
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
-  const { category, suburb } = searchParams;
+export default async function SearchPage({ searchParams }: SearchPageProps) {
+  const { category, suburb } = await searchParams;
 
   return (
     <div className="container mx-auto px-4 py-8">

@@ -45,7 +45,7 @@ export function Footer() {
                 {links.map((link) => (
                   <li key={link.href}>
                     <Link
-                      href={link.href}
+                      href={link.href as any}
                       className="text-gray-600 hover:text-primary transition-colours duration-200"
                     >
                       {link.label}

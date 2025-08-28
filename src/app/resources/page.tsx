@@ -123,14 +123,32 @@ export default function ResourcesPage() {
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col">
                   <p className="text-gray-600 mb-4 flex-1">{resource.description}</p>
-                  <Link
-                    href={resource.downloadUrl}
-                    className="flex items-centre text-blue-600 hover:text-blue-700 font-medium"
-                    {...(resource.external && { target: '_blank', rel: 'noopener noreferrer' })}
-                  >
-                    <Download className="h-4 w-4 mr-2" />
-                    {resource.external ? 'Visit Resource' : 'Download Guide'}
-                  </Link>
+                  {resource.downloadUrl !== '#' ? (
+                    resource.external ? (
+                      <a
+                        href={resource.downloadUrl}
+                        className="flex items-centre text-blue-600 hover:text-blue-700 font-medium"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Visit Resource
+                      </a>
+                    ) : (
+                      <Link
+                        href={resource.downloadUrl as any}
+                        className="flex items-centre text-blue-600 hover:text-blue-700 font-medium"
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Download Guide
+                      </Link>
+                    )
+                  ) : (
+                    <span className="flex items-centre text-gray-400 font-medium">
+                      <Download className="h-4 w-4 mr-2" />
+                      Coming Soon
+                    </span>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -165,14 +183,32 @@ export default function ResourcesPage() {
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col">
                   <p className="text-gray-600 mb-4 flex-1">{resource.description}</p>
-                  <Link
-                    href={resource.downloadUrl}
-                    className="flex items-centre text-green-600 hover:text-green-700 font-medium"
-                    {...(resource.external && { target: '_blank', rel: 'noopener noreferrer' })}
-                  >
-                    <Download className="h-4 w-4 mr-2" />
-                    {resource.external ? 'Visit Resource' : 'Download Guide'}
-                  </Link>
+                  {resource.downloadUrl !== '#' ? (
+                    resource.external ? (
+                      <a
+                        href={resource.downloadUrl}
+                        className="flex items-centre text-green-600 hover:text-green-700 font-medium"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Visit Resource
+                      </a>
+                    ) : (
+                      <Link
+                        href={resource.downloadUrl as any}
+                        className="flex items-centre text-green-600 hover:text-green-700 font-medium"
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Download Guide
+                      </Link>
+                    )
+                  ) : (
+                    <span className="flex items-centre text-gray-400 font-medium">
+                      <Download className="h-4 w-4 mr-2" />
+                      Coming Soon
+                    </span>
+                  )}
                 </CardContent>
               </Card>
             ))}
@@ -201,7 +237,7 @@ export default function ResourcesPage() {
                 <p className="text-sm text-gray-600 mb-4">
                   Join discussions, ask questions, and share experiences with other users.
                 </p>
-                <Link href="/community" className="text-blue-600 hover:text-blue-700 font-medium">
+                <Link href={"/community" as any} className="text-blue-600 hover:text-blue-700 font-medium">
                   Visit Forums
                 </Link>
               </CardContent>
@@ -229,7 +265,7 @@ export default function ResourcesPage() {
                 <p className="text-sm text-gray-600 mb-4">
                   Step-by-step video guides to help you make the most of SuburbMates.
                 </p>
-                <Link href="/tutorials" className="text-purple-600 hover:text-purple-700 font-medium">
+                <Link href={"/tutorials" as any} className="text-purple-600 hover:text-purple-700 font-medium">
                   Watch Videos
                 </Link>
               </CardContent>
@@ -244,7 +280,7 @@ export default function ResourcesPage() {
                 <p className="text-sm text-gray-600 mb-4">
                   Download our mobile app for convenient access to all features on the go.
                 </p>
-                <Link href="/mobile" className="text-orange-600 hover:text-orange-700 font-medium">
+                <Link href={"/mobile" as any} className="text-orange-600 hover:text-orange-700 font-medium">
                   Get the App
                 </Link>
               </CardContent>

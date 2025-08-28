@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Button } from '@/components/ui/Button';
 
 export default function NotFound() {
   return (
@@ -16,11 +15,12 @@ export default function NotFound() {
         </div>
 
         <div className="space-y-4">
-          <Button asChild>
-            <Link href="/">
-              Go Home
-            </Link>
-          </Button>
+          <Link 
+            href="/" 
+            className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 py-2 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+          >
+            Go Home
+          </Link>
           
           <div className="text-sm text-gray-500">
             <p>Or try searching for local services:</p>

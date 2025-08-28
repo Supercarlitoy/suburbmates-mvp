@@ -32,7 +32,7 @@ export function Nav() {
             {navItems.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
+                href={item.href as any}
                 className="text-gray-600 hover:text-primary transition-colors duration-200 font-medium"
               >
                 {item.label}
@@ -69,7 +69,7 @@ export function Nav() {
                   return (
                     <Link
                       key={item.href}
-                      href={item.href}
+                      href={item.href as any}
                       className="flex items-center space-x-3 px-4 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded-lg transition-colors"
                       onClick={() => setIsOpen(false)}
                     >

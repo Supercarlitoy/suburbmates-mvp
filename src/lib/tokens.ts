@@ -32,7 +32,7 @@ export const colors = {
     800: '#1f2937',
     900: '#111827',
   }
-} as const;
+};
 
 export const typography = {
   fontFamily: {
@@ -60,7 +60,7 @@ export const typography = {
     '5xl': ['3rem', { lineHeight: '1' }],
     '6xl': ['3.75rem', { lineHeight: '1' }],
   }
-} as const;
+};
 
 export const spacing = {
   px: '1px',
@@ -98,7 +98,7 @@ export const spacing = {
   72: '18rem',
   80: '20rem',
   96: '24rem',
-} as const;
+};
 
 export const borderRadius = {
   none: '0px',
@@ -110,7 +110,7 @@ export const borderRadius = {
   '2xl': '1rem',
   '3xl': '1.5rem',
   full: '9999px',
-} as const;
+};
 
 export const boxShadow = {
   sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
@@ -121,5 +121,5 @@ export const boxShadow = {
   '2xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
   card: '0 6px 20px rgba(10, 37, 64, 0.08)',
   premium: '0 8px 32px rgba(10, 37, 64, 0.12)',
-} as const;
+};
 
