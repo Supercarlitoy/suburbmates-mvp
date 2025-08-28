@@ -14,7 +14,7 @@ export function Footer() {
   const footerLinks = {
     'For Users': [
       { href: '/search', label: 'Find Services' },
-      { href: '/about', label: 'How It Works' },
+      { href: '/how-it-works', label: 'How It Works' },
       { href: '/safety', label: 'Safety Tips' },
     ],
     'For Businesses': [
@@ -23,7 +23,7 @@ export function Footer() {
       { href: '/resources', label: 'Resources' },
     ],
     'Support': [
-      { href: '/help', label: 'Help Center' },
+      { href: '/help', label: 'Help Centre' },
       { href: '/contact', label: 'Contact Us' },
       { href: '/feedback', label: 'Feedback' },
     ],
@@ -46,7 +46,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-gray-600 hover:text-primary transition-colors duration-200"
+                      className="text-gray-600 hover:text-primary transition-colours duration-200"
                     >
                       {link.label}
                     </Link>
